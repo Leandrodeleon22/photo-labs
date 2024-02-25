@@ -21,6 +21,7 @@ const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
         <img
           src={sampleDataForPhotoListItem.imageSource}
           alt={sampleDataForPhotoListItem.username}
+          className="photo-list__item"
         />
       </div>
       <div>
@@ -32,7 +33,7 @@ const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
         </div>
         <div>
           <h2>{sampleDataForPhotoListItem.username}</h2>
-          <p>{sampleDataForPhotoListItem.location.country}</p>
+          <p>{sampleDataForPhotoListItem.location.city}</p>
         </div>
       </div>
     </>
