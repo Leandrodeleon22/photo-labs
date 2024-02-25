@@ -16,25 +16,26 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
   /* Insert React */
+  console.log(sampleDataForPhotoListItem);
+  const {
+    id,
+    location: { city, country },
+    urls: { full, regular },
+    user,
+  } = sampleDataForPhotoListItem;
   return (
     <div className="photo-list__item">
       <PhotoFavButton />
-      <img
-        className="photo-list__image"
-        src={sampleDataForPhotoListItem.imageSource}
-        alt={sampleDataForPhotoListItem.username}
-      />
+      <img className="photo-list__image" src={full} alt={user.username} />
       <div className="photo-list__user-details">
         <img
           className="photo-list__user-profile"
-          src={sampleDataForPhotoListItem.profile}
-          alt={sampleDataForPhotoListItem.username}
+          src={user.profile}
+          alt={user.username}
         />
         <div className="photo-list__user-info">
-          <h2>{sampleDataForPhotoListItem.username}</h2>
-          <p className="photo-list__user-location">
-            {sampleDataForPhotoListItem.location.city}
-          </p>
+          <h2>{user.username}</h2>
+          <p className="photo-list__user-location">{city}</p>
         </div>
       </div>
     </div>
