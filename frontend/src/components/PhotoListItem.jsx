@@ -16,7 +16,7 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
   /* Insert React */
-  console.log(sampleDataForPhotoListItem);
+  // console.log(sampleDataForPhotoListItem);
   const {
     id,
     location: { city, country },
