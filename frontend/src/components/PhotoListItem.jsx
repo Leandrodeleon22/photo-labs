@@ -16,27 +16,26 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
   /* Insert React */
   return (
-    <>
-      <div>
+    <div className="photo-list__item">
+      <img
+        className="photo-list__image"
+        src={sampleDataForPhotoListItem.imageSource}
+        alt={sampleDataForPhotoListItem.username}
+      />
+      <div className="photo-list__user-details">
         <img
-          src={sampleDataForPhotoListItem.imageSource}
+          className="photo-list__user-profile"
+          src={sampleDataForPhotoListItem.profile}
           alt={sampleDataForPhotoListItem.username}
-          className="photo-list__item"
         />
-      </div>
-      <div>
-        <div>
-          <img
-            src={sampleDataForPhotoListItem.profile}
-            alt={sampleDataForPhotoListItem.username}
-          />
-        </div>
-        <div>
+        <div className="photo-list__user-info">
           <h2>{sampleDataForPhotoListItem.username}</h2>
-          <p>{sampleDataForPhotoListItem.location.city}</p>
+          <p className="photo-list__user-location">
+            {sampleDataForPhotoListItem.location.city}
+          </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
