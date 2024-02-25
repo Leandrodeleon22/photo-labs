@@ -23,14 +23,7 @@ const photos = Array.from({ length: 3 }, (_, i) => (
   />
 ));
 const App = () => {
-  return (
-    <div className="App">
-      {photos.map((element, i) => {
-        console.log(element);
-        return element;
-      })}
-    </div>
-  );
+  return <div className="App">{photos}</div>;
 };
 
 export default App;
