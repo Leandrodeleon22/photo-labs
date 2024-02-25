@@ -15,10 +15,20 @@ const sampleDataForPhotoListItem = {
   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 };
 
+// const photos = new Array(3);
+const photos = Array.from({ length: 3 }, (_, i) => (
+  <PhotoListItem
+    key={i}
+    sampleDataForPhotoListItem={sampleDataForPhotoListItem}
+  />
+));
 const App = () => {
   return (
     <div className="App">
-      <PhotoListItem sampleDataForPhotoListItem={sampleDataForPhotoListItem} />
+      {photos.map((element, i) => {
+        console.log(element);
+        return element;
+      })}
     </div>
   );
 };
