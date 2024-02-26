@@ -29,9 +29,11 @@ import photos from "mocks/photos";
 export const FavoritesContext = createContext(null);
 const App = () => {
   const [favorites, setFavorites] = useState(photos);
-
+  const [isLike, setIsLike] = useState(false);
   return (
-    <FavoritesContext.Provider value={{ favorites, setFavorites }}>
+    <FavoritesContext.Provider
+      value={{ favorites, setFavorites, isLike, setIsLike }}
+    >
       <div className="App">
         <HomeRoute topics={topics} photos={photos} />
       </div>

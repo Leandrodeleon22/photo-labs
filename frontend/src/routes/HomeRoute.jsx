@@ -6,16 +6,24 @@ import TopNavigation from "components/TopNavigationBar";
 import { FavoritesContext } from "App";
 
 const HomeRoute = ({ topics, photos }) => {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites, isLike, setIsLike } = useContext(FavoritesContext);
 
   const allFavorites = favorites.filter((item) => {
     return item.liked;
   });
 
+  const isLikeController = () => {
+    setIsLike((isLike) => !isLike);
+  };
+
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} />
-      <PhotoList photos={photos} />
+      <TopNavigation
+        topics={topics}
+        selected={isLike}
+        onClick={isLikeController}
+      />
+      <PhotoList photos={isLike ? allFavorites : photos} />
     </div>
   );
 };
