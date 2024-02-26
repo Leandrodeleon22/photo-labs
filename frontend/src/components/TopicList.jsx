@@ -23,7 +23,7 @@ const sampleDataForTopicList = [
 
 const TopicList = ({ topics }) => {
   const currentTopic = topics || sampleDataForTopicList;
-  console.log(topics);
+  // console.log(topics);
   return (
     <div className="top-nav-bar__topic-list">
       {currentTopic.map((data) => {

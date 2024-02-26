@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 
 import "./App.scss";
 
@@ -25,11 +25,17 @@ import photos from "mocks/photos";
 //     sampleDataForPhotoListItem={sampleDataForPhotoListItem}
 //   />
 // ));
+
+export const FavoritesContext = createContext(null);
 const App = () => {
+  const [favorites, setFavorites] = useState(photos);
+
   return (
-    <div className="App">
-      <HomeRoute topics={topics} photos={photos} />
-    </div>
+    <FavoritesContext.Provider value={{ favorites, setFavorites }}>
+      <div className="App">
+        <HomeRoute topics={topics} photos={photos} />
+      </div>
+    </FavoritesContext.Provider>
   );
 };
 
