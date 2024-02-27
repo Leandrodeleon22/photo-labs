@@ -18,7 +18,7 @@ const FavIcon = ({ displayAlert, selected, handleSelected }) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {!!displayAlert && (
+      {displayAlert && (
         <circle
           cx="21"
           cy="4"

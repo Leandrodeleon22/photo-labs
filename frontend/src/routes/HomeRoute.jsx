@@ -16,12 +16,14 @@ const HomeRoute = ({ topics, photos }) => {
     setIsLike((isLike) => !isLike);
   };
 
+  const thereIsLike = allFavorites.length > 0;
   return (
     <div className="home-route">
       <TopNavigation
         topics={topics}
         selected={isLike}
         onClick={isLikeController}
+        displayAlert={thereIsLike}
       />
       <PhotoList photos={isLike ? allFavorites : photos} />
     </div>

@@ -21,10 +21,16 @@ function PhotoFavButton({ id }) {
     // console.log(favorites);
   };
 
+  // setFavorites(allFavorites);
+
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={selected} handleSelected={handleSelected} />
+        <FavIcon
+          selected={selected}
+          handleSelected={handleSelected}
+          isFavPhotoExist={""}
+        />
       </div>
     </div>
   );
