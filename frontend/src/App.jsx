@@ -5,6 +5,7 @@ import "./App.scss";
 import HomeRoute from "routes/HomeRoute";
 import topics from "mocks/topics";
 import photos from "mocks/photos";
+import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 // Note: Rendering a single component to build components in isolation
 // const sampleDataForPhotoListItem = {
@@ -29,15 +30,26 @@ import photos from "mocks/photos";
 export const FavoritesContext = createContext(null);
 const App = () => {
   const [favorites, setFavorites] = useState(photos);
+  const [activePhoto, setActivePhoto] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [isLike, setIsLike] = useState(false);
   return (
-    <FavoritesContext.Provider
-      value={{ favorites, setFavorites, isLike, setIsLike }}
-    >
-      <div className="App">
-        <HomeRoute topics={topics} photos={photos} />
-      </div>
-    </FavoritesContext.Provider>
+    <div className="App">
+      {showModal && <PhotoDetailsModal data={activePhoto} />}
+
+      <FavoritesContext.Provider
+        value={{
+          favorites,
+          setFavorites,
+          isLike,
+          setIsLike,
+          setActivePhoto,
+          setShowModal,
+        }}
+      >
+        <HomeRoute topics={topics} photos={favorites} />
+      </FavoritesContext.Provider>
+    </div>
   );
 };
 

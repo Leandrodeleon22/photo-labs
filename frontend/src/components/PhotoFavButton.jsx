@@ -17,7 +17,7 @@ function PhotoFavButton({ id }) {
     });
 
     selectedPhoto[0].liked = !selected;
-    setFavorites([...photos]);
+    setFavorites(() => [...photos]);
     // console.log(favorites);
   };
 
