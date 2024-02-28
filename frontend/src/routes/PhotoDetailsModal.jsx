@@ -14,6 +14,7 @@ const PhotoDetailsModal = ({ data }) => {
     user,
   } = data;
 
+  console.log(data);
   return (
     <div className="photo-details-modal">
       <button
