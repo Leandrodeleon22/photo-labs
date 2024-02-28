@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 
 import "../styles/PhotoDetailsModal.scss";
+import "../styles/PhotoListItem.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import { FavoritesContext } from "App";
+import PhotoList from "components/PhotoList";
 
 const PhotoDetailsModal = ({ data }) => {
   const { setShowModal } = useContext(FavoritesContext);
@@ -23,17 +25,26 @@ const PhotoDetailsModal = ({ data }) => {
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <div className="big-photo-modal">
-        <img src={regular} alt={user.username} className="" />
-      </div>
-      <div className="photo-user-details">
-        <div className="photo-user">
-          <img src={user.profile} alt={user.username} className="" />
-        </div>
-        <div className="name-country-details">
+
+      <img
+        src={regular}
+        alt={user.username}
+        className="photo-details-modal__image"
+      />
+
+      <div className="photo-list__user-details">
+        <img
+          className="photo-list__user-profile"
+          src={user.profile}
+          alt={user.username}
+        />
+        <div className="photo-list__user-info">
           <h2>{user.name}</h2>
+          <p className="photo-list__user-location">{`${city} ${country}`}</p>
         </div>
       </div>
+      <h2>similar photos</h2>
+      <PhotoList className="photo-details-modal__images" />
     </div>
   );
 };

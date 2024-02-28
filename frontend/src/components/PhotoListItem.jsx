@@ -45,7 +45,7 @@ const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
           />
           <div className="photo-list__user-info">
             <h2>{user.name}</h2>
-            <p className="photo-list__user-location">{city}</p>
+            <p className="photo-list__user-location">{`${city} ${country}`}</p>
           </div>
         </div>
       </div>
