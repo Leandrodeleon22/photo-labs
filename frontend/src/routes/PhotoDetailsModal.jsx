@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
+import { FavoritesContext } from "App";
 
 const PhotoDetailsModal = ({ data }) => {
-  console.log(data);
+  const { setShowModal } = useContext(FavoritesContext);
+  // console.log(favorites);
   const {
     id,
     location: { city, country },
     urls: { full, regular },
     user,
   } = data;
+
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button">
+      <button
+        className="photo-details-modal__close-button"
+        onClick={() => setShowModal(false)}
+      >
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="big-photo-modal">

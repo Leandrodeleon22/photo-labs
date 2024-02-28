@@ -35,8 +35,6 @@ const App = () => {
   const [isLike, setIsLike] = useState(false);
   return (
     <div className="App">
-      {showModal && <PhotoDetailsModal data={activePhoto} />}
-
       <FavoritesContext.Provider
         value={{
           favorites,
@@ -47,6 +45,8 @@ const App = () => {
           setShowModal,
         }}
       >
+        {" "}
+        {showModal && <PhotoDetailsModal data={activePhoto} />}
         <HomeRoute topics={topics} photos={favorites} />
       </FavoritesContext.Provider>
     </div>
