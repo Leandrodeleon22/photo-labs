@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 import { FavoritesContext } from "App";
+import FavBadge from "./FavBadge";
 
 // const sampleDataForPhotoListItem = {
 //   id: "1",
@@ -18,7 +19,7 @@ import { FavoritesContext } from "App";
 const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
   /* Insert React */
   // console.log(sampleDataForPhotoListItem);
-  const { setShowModal, setActivePhoto, showModal } =
+  const { setShowModal, setActivePhoto, showModal, activePhoto } =
     useContext(FavoritesContext);
   const {
     id,
@@ -35,6 +36,8 @@ const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
   return (
     <div className="photo-list__item">
       <PhotoFavButton id={id} />
+
+      {/* <FavBadge /> */}
       <div onClick={handleModalClick}>
         <img className="photo-list__image" src={full} alt={user.username} />
         <div className="photo-list__user-details">

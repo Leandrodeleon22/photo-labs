@@ -33,6 +33,12 @@ const App = () => {
   const [activePhoto, setActivePhoto] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [isLike, setIsLike] = useState(false);
+  const [selected, setSelected] = useState(false);
+
+  // favorites.forEach((obj) => {
+  //   obj.liked = false;
+  // });
+
   return (
     <div className="App">
       <FavoritesContext.Provider
@@ -43,6 +49,9 @@ const App = () => {
           setIsLike,
           setActivePhoto,
           setShowModal,
+          selected,
+          setSelected,
+          activePhoto,
         }}
       >
         {" "}

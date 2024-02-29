@@ -28,6 +28,7 @@ const HomeRoute = ({ topics, photos }) => {
         displayAlert={thereIsLike}
       />
       <PhotoList photos={isLike ? allFavorites : photos} />
+      {/* <PhotoList photos={favorites} /> */}
     </div>
   );
 };

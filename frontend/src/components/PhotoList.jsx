@@ -60,6 +60,7 @@ const sampleDataForPhotoList = [
 
 const PhotoList = ({ photos }) => {
   const currenPhotos = photos || sampleDataForPhotoList;
+
   return (
     <ul className="photo-list">
       {currenPhotos.map((data) => {
