@@ -23,7 +23,7 @@ const HomeRoute = ({ topics, photos }) => {
     <div className="home-route">
       <TopNavigation
         topics={topics}
-        selected={isLike}
+        selected={thereIsLike}
         onClick={isLikeController}
         displayAlert={thereIsLike}
       />

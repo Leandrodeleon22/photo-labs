@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
@@ -13,9 +13,10 @@ function PhotoFavButton({ id }) {
   // favorites.forEach((obj) => {
   //   obj.liked = selected;
   // });
-
-  const selectedPhoto = photos.filter((photo) => {
-    return photo.id === id;
+  const selectedPhoto = useMemo(() => {
+    return photos.filter((photo) => {
+      return photo.id === id;
+    });
   });
 
   // setActivePhoto(selectedPhoto[0]);

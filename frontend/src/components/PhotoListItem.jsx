@@ -37,7 +37,6 @@ const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
     <div className="photo-list__item">
       <PhotoFavButton id={id} />
 
-      {/* <FavBadge /> */}
       <div onClick={handleModalClick}>
         <img className="photo-list__image" src={full} alt={user.username} />
         <div className="photo-list__user-details">

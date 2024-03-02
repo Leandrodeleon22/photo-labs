@@ -31,14 +31,13 @@ const PhotoDetailsModal = ({ data }) => {
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
-
+      <PhotoFavButton id={id} />
       <img
         src={regular}
         alt={user.username}
-        className="photo-details-modal__image"
+        // className="photo-details-modal__image"
       />
 
-      <PhotoFavButton id={id} />
       <div className="photo-list__user-details">
         <img
           className="photo-list__user-profile"
@@ -50,16 +49,18 @@ const PhotoDetailsModal = ({ data }) => {
           <p className="photo-list__user-location">{`${city} ${country}`}</p>
         </div>
       </div>
-      <h2>similar photos</h2>
 
       {/* <PhotoListItem sampleDataForPhotoListItem={data} /> */}
 
-      <PhotoList
-        photos={[photo2, photo3, photo4, photo5]}
-        className="photo-details-modal__images"
-        // selected={selected}
-        // setSelected={setSelected}
-      />
+      <div className="photo-details-modal__images">
+        <h2 style={{ marginLeft: "30px" }}>Similar photos</h2>
+        <PhotoList
+          photos={[photo2, photo3, photo4, photo5]}
+          className="photo-details-modal__images"
+          // selected={selected}
+          // setSelected={setSelected}
+        />
+      </div>
     </div>
   );
 };
