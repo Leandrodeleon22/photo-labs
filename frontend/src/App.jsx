@@ -6,6 +6,7 @@ import HomeRoute from "routes/HomeRoute";
 import topics from "mocks/topics";
 import photos from "mocks/photos";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import useApplicationData from "hooks/useApplicationData";
 
 // Note: Rendering a single component to build components in isolation
 // const sampleDataForPhotoListItem = {
@@ -29,11 +30,16 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 export const FavoritesContext = createContext(null);
 const App = () => {
-  const [favorites, setFavorites] = useState(photos);
-  const [activePhoto, setActivePhoto] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [isLike, setIsLike] = useState(false);
-
+  const {
+    favorites,
+    setFavorites,
+    activePhoto,
+    setActivePhoto,
+    showModal,
+    setShowModal,
+    isLike,
+    setIsLike,
+  } = useApplicationData(photos);
   // favorites.forEach((obj) => {
   //   obj.liked = false;
   // });
