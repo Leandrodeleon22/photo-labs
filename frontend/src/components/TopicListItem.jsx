@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "../styles/TopicListItem.scss";
+import { FavoritesContext } from "App";
 
 // const sampleDataForTopicListItem = {
 //   id: "1",
@@ -9,8 +10,17 @@ import "../styles/TopicListItem.scss";
 // };
 
 const TopicListItem = ({ sampleDataForTopicListItem }) => {
+  const { setUrl } = useContext(FavoritesContext);
+  const handleClick = () => {
+    console.log(sampleDataForTopicListItem);
+    setUrl(
+      `http://localhost:8001/api/topics/photos/${sampleDataForTopicListItem.id}`
+    );
+  };
   return (
-    <div className="topic-list__item">{sampleDataForTopicListItem.title}</div>
+    <div className="topic-list__item" onClick={handleClick}>
+      {sampleDataForTopicListItem.title}
+    </div>
   );
 };
 

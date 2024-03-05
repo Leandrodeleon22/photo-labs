@@ -7,14 +7,14 @@ import photos from "mocks/photos";
 
 function PhotoFavButton({ id }) {
   const [selected, setSelected] = useState(false);
-  const { favorites, setFavorites, setActivePhoto } =
+  const { favorites, setFavorites, setActivePhoto, photoData } =
     useContext(FavoritesContext);
 
   // favorites.forEach((obj) => {
   //   obj.liked = selected;
   // });
   const selectedPhoto = useMemo(() => {
-    return photos.filter((photo) => {
+    return photoData.filter((photo) => {
       return photo.id === id;
     });
   });

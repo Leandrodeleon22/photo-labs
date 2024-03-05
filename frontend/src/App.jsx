@@ -3,8 +3,8 @@ import React, { createContext, useState } from "react";
 import "./App.scss";
 
 import HomeRoute from "routes/HomeRoute";
-import topics from "mocks/topics";
-import photos from "mocks/photos";
+// import topics from "mocks/topics";
+// import photos from "mocks/photos";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 import useApplicationData from "hooks/useApplicationData";
 
@@ -39,11 +39,14 @@ const App = () => {
     setShowModal,
     isLike,
     setIsLike,
-  } = useApplicationData(photos);
+    photoData,
+    topics,
+    setUrl,
+  } = useApplicationData();
   // favorites.forEach((obj) => {
   //   obj.liked = false;
   // });
-
+  // console.log(photoData);
   return (
     <div className="App">
       <FavoritesContext.Provider
@@ -55,6 +58,9 @@ const App = () => {
           setActivePhoto,
           setShowModal,
           activePhoto,
+          photoData,
+          topics,
+          setUrl,
         }}
       >
         {" "}

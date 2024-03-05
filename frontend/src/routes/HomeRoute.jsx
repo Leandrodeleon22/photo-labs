@@ -6,7 +6,8 @@ import TopNavigation from "components/TopNavigationBar";
 import { FavoritesContext } from "App";
 
 const HomeRoute = ({ topics, photos }) => {
-  const { favorites, isLike, setIsLike } = useContext(FavoritesContext);
+  const { favorites, isLike, setIsLike, photoData } =
+    useContext(FavoritesContext);
 
   const allFavorites = useMemo(() => {
     return favorites.filter((item) => {
@@ -27,7 +28,7 @@ const HomeRoute = ({ topics, photos }) => {
         onClick={isLikeController}
         displayAlert={thereIsLike}
       />
-      <PhotoList photos={isLike ? allFavorites : photos} />
+      <PhotoList photos={isLike ? allFavorites : photoData} />
       {/* <PhotoList photos={favorites} /> */}
     </div>
   );

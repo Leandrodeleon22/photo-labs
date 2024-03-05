@@ -24,7 +24,7 @@ const PhotoDetailsModal = ({ data }) => {
 
   // console.log(id);
   return (
-    <div className="photo-details-modal">
+    <div className="photo-details-modal ">
       <button
         className="photo-details-modal__close-button"
         onClick={() => setShowModal(false)}
@@ -35,7 +35,7 @@ const PhotoDetailsModal = ({ data }) => {
       <img
         src={regular}
         alt={user.username}
-        // className="photo-details-modal__image"
+        className="photo-details-modal__image "
       />
 
       <div className="photo-list__user-details">
