@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from "react";
-import photos from "mocks/photos";
+
 import axios from "axios";
 const initialState = {
   favorites: [],
@@ -41,7 +41,7 @@ const useApplicationData = () => {
       try {
         const data = await axios.get(`${state.url}`);
         const topicData = await axios.get("http://localhost:8001/api/topics/");
-        // console.log(topicData.data);
+
         dispatch({ type: "SET_TOPIC_DATA", payload: topicData.data });
         dispatch({ type: "SET_PHOTO_DATA", payload: data.data });
       } catch (error) {

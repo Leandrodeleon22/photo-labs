@@ -5,24 +5,20 @@ import "../styles/PhotoListItem.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import { FavoritesContext } from "App";
 import PhotoList from "components/PhotoList";
-import PhotoListItem from "components/PhotoListItem";
 import PhotoFavButton from "components/PhotoFavButton";
-import FavBadge from "components/FavBadge";
 
 const PhotoDetailsModal = ({ data }) => {
-  const { setShowModal, selected, setSelected, isLike, setIsLike } =
-    useContext(FavoritesContext);
-  // console.log(data.similar_photos);
+  const { setShowModal } = useContext(FavoritesContext);
+
   const { photo2, photo3, photo4, photo5 } = data.similar_photos;
 
   const {
     id,
     location: { city, country },
-    urls: { full, regular },
+    urls: { regular },
     user,
   } = data;
 
-  // console.log(id);
   return (
     <div className="photo-details-modal ">
       <button
@@ -50,15 +46,11 @@ const PhotoDetailsModal = ({ data }) => {
         </div>
       </div>
 
-      {/* <PhotoListItem sampleDataForPhotoListItem={data} /> */}
-
       <div className="photo-details-modal__images">
         <h2 style={{ marginLeft: "30px" }}>Similar photos</h2>
         <PhotoList
           photos={[photo2, photo3, photo4, photo5]}
           className="photo-details-modal__images"
-          // selected={selected}
-          // setSelected={setSelected}
         />
       </div>
     </div>

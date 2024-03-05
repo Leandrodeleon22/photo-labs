@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 import { FavoritesContext } from "App";
-// import photos from "mocks/photos";
 
 const sampleDataForPhotoList = [
   {

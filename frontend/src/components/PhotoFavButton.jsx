@@ -3,33 +3,23 @@ import React, { useContext, useMemo, useState } from "react";
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 import { FavoritesContext } from "App";
-import photos from "mocks/photos";
 
 function PhotoFavButton({ id }) {
   const [selected, setSelected] = useState(false);
-  const { favorites, setFavorites, setActivePhoto, photoData } =
-    useContext(FavoritesContext);
+  const { favorites, setFavorites, photoData } = useContext(FavoritesContext);
 
-  // favorites.forEach((obj) => {
-  //   obj.liked = selected;
-  // });
   const selectedPhoto = useMemo(() => {
     return photoData.filter((photo) => {
       return photo.id === id;
     });
   });
 
-  // setActivePhoto(selectedPhoto[0]);
   const handleSelected = () => {
     setSelected((prev) => !prev);
 
     selectedPhoto[0].liked = !selected;
     setFavorites(() => [...favorites]);
-    // console.log(favorites);
   };
-
-  // console.log(favorites);
-  // setFavorites(allFavorites);
 
   return (
     <div className="photo-list__fav-icon">

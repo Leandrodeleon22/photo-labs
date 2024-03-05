@@ -3,28 +3,14 @@ import React, { useContext } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 import { FavoritesContext } from "App";
-import FavBadge from "./FavBadge";
-
-// const sampleDataForPhotoListItem = {
-//   id: "1",
-//   location: {
-//     city: "Montreal",
-//     country: "Canada",
-//   },
-//   imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-//   username: "Joe Example",
-//   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-// };s
 
 const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
-  /* Insert React */
-  // console.log(sampleDataForPhotoListItem);
-  const { setShowModal, setActivePhoto, showModal, activePhoto } =
+  const { setShowModal, setActivePhoto, showModal } =
     useContext(FavoritesContext);
   const {
     id,
     location: { city, country },
-    urls: { full, regular },
+    urls: { full },
     user,
   } = sampleDataForPhotoListItem;
 

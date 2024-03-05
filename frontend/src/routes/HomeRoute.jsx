@@ -1,11 +1,11 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useMemo } from "react";
 
 import "../styles/HomeRoute.scss";
 import PhotoList from "components/PhotoList";
 import TopNavigation from "components/TopNavigationBar";
 import { FavoritesContext } from "App";
 
-const HomeRoute = ({ topics, photos }) => {
+const HomeRoute = ({ topics }) => {
   const { favorites, isLike, setIsLike, photoData } =
     useContext(FavoritesContext);
 
@@ -29,7 +29,6 @@ const HomeRoute = ({ topics, photos }) => {
         displayAlert={thereIsLike}
       />
       <PhotoList photos={isLike ? allFavorites : photoData} />
-      {/* <PhotoList photos={favorites} /> */}
     </div>
   );
 };
