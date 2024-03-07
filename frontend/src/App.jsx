@@ -21,6 +21,7 @@ const App = () => {
     photoData,
     topics,
     setUrl,
+    topicListPhotos,
   } = useApplicationData();
 
   return (
@@ -37,6 +38,7 @@ const App = () => {
           photoData,
           topics,
           setUrl,
+          topicListPhotos,
         }}
       >
         {" "}

@@ -9,12 +9,15 @@ const initialState = {
   photoData: [],
   topicData: [],
   url: "http://localhost:8001/api/photos/",
+  topicListPhotos: [],
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "SET_URL":
       return { ...state, url: action.payload };
+    case "SET_TOPICLIST_PHOTOS":
+      return { ...state, topicListPhotos: action.payload };
     case "SET_TOPIC_DATA":
       return { ...state, topicData: action.payload };
     case "SET_PHOTO_DATA":
@@ -35,15 +38,33 @@ const reducer = (state, action) => {
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log(state);
+  // console.log(state);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await axios.get(`${state.url}`);
+        const allData = await axios.get("http://localhost:8001/api/photos/");
         const topicData = await axios.get("http://localhost:8001/api/topics/");
 
         dispatch({ type: "SET_TOPIC_DATA", payload: topicData.data });
-        dispatch({ type: "SET_PHOTO_DATA", payload: data.data });
+        dispatch({ type: "SET_PHOTO_DATA", payload: allData.data });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const topicListPhotos = await axios.get(`${state.url}`);
+
+        dispatch({
+          type: "SET_TOPICLIST_PHOTOS",
+          payload: topicListPhotos.data,
+        });
       } catch (error) {
         console.log(error);
       }
@@ -67,6 +88,7 @@ const useApplicationData = () => {
     photoData: state.photoData,
     topics: state.topicData,
     setUrl: (url) => dispatch({ type: "SET_URL", payload: url }),
+    topicListPhotos: state.topicListPhotos,
   };
 };
 

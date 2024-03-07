@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
@@ -59,8 +59,12 @@ const sampleDataForPhotoList = [
 ];
 
 const PhotoList = () => {
-  const { photoData } = useContext(FavoritesContext);
-  const currenPhotos = photoData || sampleDataForPhotoList;
+  const { favorites, topicListPhotos } = useContext(FavoritesContext);
+
+  const ids = topicListPhotos.map((el) => el.id);
+
+  const filteredData = favorites.filter((item) => ids.includes(item.id));
+  const currenPhotos = filteredData || sampleDataForPhotoList;
 
   return (
     <ul className="photo-list">

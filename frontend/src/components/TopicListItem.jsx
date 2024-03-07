@@ -5,8 +5,8 @@ import { FavoritesContext } from "App";
 
 const TopicListItem = ({ sampleDataForTopicListItem }) => {
   const { setUrl } = useContext(FavoritesContext);
+
   const handleClick = () => {
-    console.log(sampleDataForTopicListItem);
     setUrl(
       `http://localhost:8001/api/topics/photos/${sampleDataForTopicListItem.id}`
     );
