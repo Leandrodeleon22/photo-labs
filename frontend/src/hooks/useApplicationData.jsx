@@ -38,8 +38,6 @@ const reducer = (state, action) => {
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // console.log(state);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
