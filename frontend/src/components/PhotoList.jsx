@@ -59,13 +59,18 @@ const sampleDataForPhotoList = [
 ];
 
 const PhotoList = () => {
-  const { favorites, topicListPhotos } = useContext(FavoritesContext);
+  const { favorites, isLike, topicListPhotos } = useContext(FavoritesContext);
 
   const ids = topicListPhotos.map((el) => el.id);
-
+  console.log(favorites);
   const filteredData = favorites.filter((item) => ids.includes(item.id));
-  const currenPhotos = filteredData || sampleDataForPhotoList;
+  console.log(isLike);
+  const likedPhotos = favorites.filter((photo) => photo.liked);
+  const currenPhotos = isLike
+    ? likedPhotos
+    : filteredData || sampleDataForPhotoList;
 
+  console.log(likedPhotos);
   return (
     <ul className="photo-list">
       {currenPhotos.map((data) => {
