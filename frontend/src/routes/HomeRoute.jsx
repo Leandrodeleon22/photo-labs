@@ -6,7 +6,7 @@ import TopNavigation from "components/TopNavigationBar";
 import { FavoritesContext } from "App";
 
 const HomeRoute = ({ topics }) => {
-  const { favorites, isLike, setIsLike, photoData } =
+  const { favorites, isLike, setIsLike, photoData, setFavorites } =
     useContext(FavoritesContext);
 
   const allFavorites = useMemo(() => {
@@ -15,10 +15,12 @@ const HomeRoute = ({ topics }) => {
     });
   });
 
-  const isLikeController = () => {
-    setIsLike((isLike) => !isLike);
-  };
+  console.log(isLike);
 
+  const isLikeController = () => {
+    setIsLike(!isLike);
+  };
+  console.log(favorites);
   const thereIsLike = allFavorites.length > 0;
   return (
     <div className="home-route">
@@ -28,7 +30,7 @@ const HomeRoute = ({ topics }) => {
         onClick={isLikeController}
         displayAlert={thereIsLike}
       />
-      <PhotoList photos={isLike ? allFavorites : photoData} />
+      <PhotoList photos={isLike ? allFavorites : favorites} />
     </div>
   );
 };

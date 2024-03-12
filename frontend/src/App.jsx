@@ -1,6 +1,8 @@
 import React, { createContext, useState } from "react";
 
 import "./App.scss";
+import "./App.css";
+import "./index.css";
 
 import HomeRoute from "routes/HomeRoute";
 
